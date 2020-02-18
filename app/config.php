@@ -1,10 +1,10 @@
 <?php 
 
 //путь к основной папке нашего приложения 
-define("APP_DIRECTORY", "/var/www/vnvnnru/html/");
+define("APP_DIRECTORY", "/");
 
 //путь к основной папке нашего приложения 
-define("CONTROLLERS_DIRECTORY", "/var/www/vnvnnru/html/app/controllers/");
+define("CONTROLLERS_DIRECTORY", "app/controllers/");
 
 //ссылка на наш сайт 
 define("APP_BASE_URL", "https://vnvnn.ru/");
@@ -17,8 +17,8 @@ define("ERROR_PAGE", "404.php");
 
 //нужные данные от базы данных
 define("DBUSER", "root");       // имя пользователя
-define("DBPWD", "zako1996");    // пароль пользователя
-define("DBNAME", "firstapp");   // название базы данных
+define("DBPWD", "");    // пароль пользователя
+define("DBNAME", "");   // название базы данных
 define("DBHOST", "localhost");  // хост
 define("DBcharset", "utf8");   // кодировка
 
