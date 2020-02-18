@@ -22,26 +22,12 @@
     <form class="form-signin" action="/login.php">
       <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Please SIGN UP</h1>
-       <?php if(!empty($routes[3]) && !empty($routes[4]) && $routes[3] == 'error'): ?>
-        <?php switch ($routes[4]) { 
-           case 3:
-           ?>
-            <div class="alert alert-danger" role="alert">
-                Email is not valid! 
+      <?php if(!empty($routes[3]) && !empty($routes[4]) && $routes[3] == 'error'): ?>
+           <div class="alert alert-danger" role="alert">
+               <?=Flash::get($routes[4]);?>
             </div>
-            <?php
-            break;
-
-           case 4:
-           ?>
-            <div class="alert alert-danger" role="alert">
-                Email is exists in our DB! 
-            </div>
-            <?php
-            break;
-          
-        } ?>
-      <?php endif; ?>
+            <?php  
+      endif; ?>
 
       <input name="do" value="register" style="display:none;">
       <label for="inputEmail" class="sr-only">Email address</label>

@@ -9,6 +9,9 @@ require_once('app/models/Session.class.php');
 Session::start();
 
 
+//добавляем класс уведомления
+require_once('app/models/Flash.class.php');
+
 //добавляем класс базы данных
 require_once('app/models/MyDB.class.php');
 require_once('app/models/MyDB_Helper.class.php');

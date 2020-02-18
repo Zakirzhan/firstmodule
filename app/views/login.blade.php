@@ -26,32 +26,11 @@
       <h1 class="h3 mb-3 font-weight-normal">Please, SIGN IN</h1>
 
       <?php if(!empty($routes[3]) && !empty($routes[4]) && $routes[3] == 'error'): ?>
-        <?php switch ($routes[4]) {
-          case 1:
-           ?>
-            <div class="alert alert-danger" role="alert">
-                Email and  password combination is incorrect!
+           <div class="alert alert-danger" role="alert">
+               <?=Flash::get($routes[4]);?>
             </div>
-            <?php
-            break;
-          
-          case 2:
-           ?>
-            <div class="alert alert-danger" role="alert">
-                Email is not found in our database
-            </div>
-            <?php
-            break;
-           case 3:
-           ?>
-            <div class="alert alert-danger" role="alert">
-                Email is not valid! 
-            </div>
-            <?php
-            break;
-          
-        } ?>
-      <?php endif; ?>
+            <?php  
+      endif; ?>
       <label for="inputEmail" class="sr-only">Email address</label>
       <input name="do" value="authorize" style="display:none;">
       <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
