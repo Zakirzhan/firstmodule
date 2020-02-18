@@ -40,9 +40,10 @@ if(!empty($_GET['do']) && $method = $_GET['do']) {
 
 				$title_page = 'Страница авторизации'; 
 
- 				if(!empty($email)){
- 					
+ 				if(!empty($email) && !empty($password)) {
+
  						$validation->loginValidation($email,$password); 
+ 						die();
  				}
 
 			break;
@@ -60,29 +61,15 @@ if(!empty($_GET['do']) && $method = $_GET['do']) {
 		case 'register':
 				$title_page = 'Регистрация нового пользователя';
 
-				if(!empty($_GET['email']) && !empty($_GET['password'])){
+				if(!empty($email) && !empty($password)){
 					
-					$email = urldecode($_GET['email']);
-					$password = md5(urldecode($_GET['password']));
-						
-					$user = array('email' => $email, 'password' => $password, 'date' =>  date('Y-m-d h:i:s'));
-
-
-					$mydb->insertItem('users',$user); 
-
-
-					Session::set('user',$user);
-
-					header("location: ".APP_BASE_URL);
-					    die();
+					$validation->registrationValidation($email,$password); 
+					die();
 				}
 
 
 
 			break;	
-		default:
-
-			break;
 	}
 
 }

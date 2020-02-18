@@ -70,7 +70,7 @@ class Validation
 
     public function emailExists(?string $email)
     {
-        if (!empty($this->db->getItem('users',['email'=>$username])))
+        if (!empty($this->db->getItem('users',['email'=>$email])))
         {
             return true;
         }
@@ -84,15 +84,16 @@ class Validation
      * @param int|$codeError 1 - "Email and password combination is incorrect!"
      *                       2 - "Email is not found in our database!"
      *                       3 - "Email is not valid!"
+                             4 - "Email is exists in our DB!"
      *
      * @return NULL
      */
 
-    public function redirectUser(boolean $validUser, ?int $codeError = 1)
+    public function redirectUser($validUser, ?string $method = 'authorize', ?int $codeError = 1)
     {
         if (!$validUser || !empty($codeError))
         {   
-            header('Location: '.APP_BASE_URL.'account/authorize/error/'.$codeError);
+            header('Location: '.APP_BASE_URL.'account/'.$method.'/error/'.$codeError);
 
         }
         else
@@ -146,6 +147,47 @@ class Validation
         $this->redirectUser($validUser);
     }
 
+    /**
+     * Registration Validation 
+     *
+     * @param string|$email
+     * @param string|$password
+     *
+     * @return NULL
+     */
+    public function registrationValidation(?string $email, ?string $password)
+    {
+        $validUser = false;
+
+        //проверяем 
+        if (!$this->fieldIsEmpty($email) && !$this->fieldIsEmpty($password))
+        { 
+
+            if ($this->validateEmail($email))
+            {
+
+                    if(!$this->emailExists($email)){
+                   
+                        $user = array('email' => $email, 'password' => $password);
+
+                        $this->db->insertItem('users',$user); 
+
+                        Session::set('user',$user);
+ 
+
+                    } else {
+
+                         $this->redirectUser(0,'registration',4);
+                    }
+               
+            } else {
+
+                 $this->redirectUser(0,'registration',3);
+            }
+ 
+        }
+
+    }
 
 }
 
