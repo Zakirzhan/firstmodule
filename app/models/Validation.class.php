@@ -4,7 +4,7 @@
  * Validation - обработчик ошибок при авторизации
  *
  *
- * @link      https://github.com/Zakirzhan/php-course-firstapp/blob/master/app/models/Validation.class.php
+ * @link      https://github.com/Zakirzhan/firstmodule/blob/master/app/models/Validation.class.php
  * @author    Zakirzhan
  * @copyright 2020
  */

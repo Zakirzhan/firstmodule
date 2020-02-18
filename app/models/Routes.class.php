@@ -4,7 +4,7 @@
  * Routes - быстрый и легкий PHP router.
  *
  *
- * @link      https://github.com/Zakirzhan/php-course-firstapp/blob/master/app/models/Router.class.php
+ * @link      https://github.com/Zakirzhan/firstmodule/blob/master/app/models/Router.class.php
  * @author    Zakirzhan
  * @copyright 2020
  */

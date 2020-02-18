@@ -5,7 +5,7 @@
  * MyDB - быстрый и легкий PHP библиотека для того, чтобы получить данные из базы данных без знания sql.
  *
  *
- * @link      https://github.com/Zakirzhan/php-course-firstapp/blob/master/app/models/MyDB.class.php
+ * @link      https://github.com/Zakirzhan/firstmodule/blob/master/app/models/MyDB_Helper.class.php
  * @author    Zakirzhan
  * @copyright 2020
  */
@@ -58,7 +58,7 @@ class MyDB_Helper extends MyDB {
 		$sql_query = "SELECT * FROM `$table`";
 		
 		$sql_query .= " WHERE ".$this->implodeData($data,'where'); 
-		
+
 		$stmt = $this->pdo->prepare($sql_query);
 
 		$stmt->execute(); 

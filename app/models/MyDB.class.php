@@ -4,7 +4,7 @@
  * MyDB - быстрый и легкий PHP библиотека для того, чтобы получить данные из базы данных без знания sql.
  *
  *
- * @link      https://github.com/Zakirzhan/php-course-firstapp/blob/master/app/models/MyDB.class.php
+ * @link      https://github.com/Zakirzhan/firstmodule/blob/master/app/models/MyDB.class.php
  * @author    Zakirzhan
  * @copyright 2020
  */
